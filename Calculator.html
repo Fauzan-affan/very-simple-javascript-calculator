@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+  </head>
+  <body>
+    <h1>Simple Kalkulator</h1>
+
+    <form action="#" id="form">
+      <input id="angka1" type="text" placeholder="Masukkan angka 1" />
+
+      <select id="operator">
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+
+      <input id="angka2" type="text" placeholder="Masukkan angka 2" />
+
+      <button type="submit">Hitung</button>
+    </form>
+
+    <div id="result" style="margin-top: 10px;"></div>
+
+    <script>
+      const form = document.querySelector("#form");
+      const angka1 = document.querySelector("#angka1");
+      const angka2 = document.querySelector("#angka2");
+      const operator = document.querySelector("#operator");
+      const result = document.querySelector("#result");
+
+      form.addEventListener("submit", hitung);
+
+      function hitung(e) {
+        e.preventDefault()
+        let hasilPerhitungan;
+        
+        operator.value === "*" ? hasilPerhitungan = parseInt(angka1.value) * parseInt(angka2.value) : null
+        operator.value === "/" ? hasilPerhitungan = parseInt(angka1.value) / parseInt(angka2.value) : null
+        operator.value === "+" ? hasilPerhitungan = parseInt(angka1.value) + parseInt(angka2.value) : null
+        operator.value === "-" ? hasilPerhitungan = parseInt(angka1.value) - parseInt(angka2.value) : null
+        
+        hasilPerhitungan ? result.innerHTML = hasilPerhitungan : alert("Periksa lagi angkanya ya")
+      }
+    </script>
+  </body>
+</html>
